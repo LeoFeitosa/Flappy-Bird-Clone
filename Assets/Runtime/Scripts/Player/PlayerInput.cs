@@ -7,6 +7,11 @@ public class PlayerInput : MonoBehaviour
 {
     public bool Tap()
     {
+        if (!enabled)
+        {
+            return false;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             return true;

@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +24,13 @@ public class PlayerController : MonoBehaviour
     private PlayerInput input;
 
     public Vector3 Velocity => velocity;
+
+    private bool isDead = false;
+    private bool IsDead
+    {
+        get => isDead;
+        set => isDead = value;
+    }
 
     private void Awake()
     {
@@ -62,5 +71,30 @@ public class PlayerController : MonoBehaviour
             zRot -= rotateDownSpeed * Time.deltaTime;
             zRot = Mathf.Max(-90, zRot);
         }
+    }
+
+    public void Die()
+    {
+        if (!IsDead)
+        {
+            IsDead = true;
+            forwardSpeed = 0;
+            flapVelocity = 0;
+            input.enabled = false;
+            velocity = Vector3.zero;
+
+            PlayerAnimationController animController = GetComponent<PlayerAnimationController>();
+            if (animController != null)
+            {
+                animController.Die();
+            }
+            StartCoroutine(TEMP_ReloadGame());
+        }
+    }
+
+    private IEnumerator TEMP_ReloadGame()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
