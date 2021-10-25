@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,20 +22,16 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInput input;
 
-    public Vector3 Velocity => velocity;
+    public Vector2 Velocity => velocity;
 
-    private bool isDead = false;
-    private bool IsDead
-    {
-        get => isDead;
-        set => isDead = value;
-    }
+    public bool IsDead { get; private set; }
 
     private void Awake()
     {
         input = GetComponent<PlayerInput>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         ModifyVelocity();
@@ -47,15 +42,18 @@ public class PlayerController : MonoBehaviour
         transform.position += velocity * Time.deltaTime;
     }
 
-    private float ProcessInput()
+    private void ProcessInput()
     {
-        if (input.Tap())
+        if (input.TapUp())
         {
-            velocity.y = flapVelocity;
-            zRot = flapAngleDegress;
+            Flap();
         }
+    }
 
-        return zRot;
+    public void Flap()
+    {
+        velocity.y = flapVelocity;
+        zRot = flapAngleDegress;
     }
 
     private void ModifyVelocity()
@@ -82,12 +80,12 @@ public class PlayerController : MonoBehaviour
             flapVelocity = 0;
             input.enabled = false;
             velocity = Vector3.zero;
-
             PlayerAnimationController animController = GetComponent<PlayerAnimationController>();
             if (animController != null)
             {
                 animController.Die();
             }
+
             StartCoroutine(TEMP_ReloadGame());
         }
     }

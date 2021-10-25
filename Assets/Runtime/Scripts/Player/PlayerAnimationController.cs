@@ -7,14 +7,15 @@ public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     private PlayerController playerController;
+
     private static readonly int velocityYId = Animator.StringToHash("SpeedY");
 
-    void Awake()
+    private void Awake()
     {
         playerController = GetComponent<PlayerController>();
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         animator.SetFloat(velocityYId, playerController.Velocity.y);
     }

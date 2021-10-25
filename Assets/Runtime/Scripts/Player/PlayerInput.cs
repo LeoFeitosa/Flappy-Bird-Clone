@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public bool Tap()
+    public bool TapUp()
     {
         if (!enabled)
         {
@@ -19,7 +16,7 @@ public class PlayerInput : MonoBehaviour
 
         for (int i = 0; i < Input.touchCount; i++)
         {
-            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            if (Input.GetTouch(i).phase == TouchPhase.Ended)
             {
                 return true;
             }

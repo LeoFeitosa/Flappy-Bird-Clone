@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7608515988598710942
+--- !u!1 &420303708919352371
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7184963401665464063}
-  - component: {fileID: 3331653527510824176}
+  - component: {fileID: 420303708919352373}
+  - component: {fileID: 420303708919352372}
   m_Layer: 0
   m_Name: PipeSpawner
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7184963401665464063
+--- !u!4 &420303708919352373
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7608515988598710942}
+  m_GameObject: {fileID: 420303708919352371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,21 +31,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3331653527510824176
+--- !u!114 &420303708919352372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7608515988598710942}
+  m_GameObject: {fileID: 420303708919352371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d03bb443022337d42a64b04a1fb18a41, type: 3}
+  m_Script: {fileID: 11500000, guid: 32d15875a2c422b48a6d04c65a2afddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomPipePrefab: {fileID: 5175377710724568796, guid: 773d3d26f0315514db7cdd369b043b6a, type: 3}
-  topPipePrefab: {fileID: 5175377710724568796, guid: f56caebf7d77d7c4aa8fc55b21f33ec7, type: 3}
-  minGapSize: 2.5
-  maxGapSize: 5
-  minGapCenter: 3
+  bottomPipePrefab: {fileID: 9102214049651654780, guid: 81821349006436a4283b3e870a9a66d2, type: 3}
+  topPipePrefab: {fileID: 9102214049651654780, guid: c06e0b426e93c1d43a19145f381837a1, type: 3}
+  minGapSize: 3
+  maxGapSize: 3
+  minGapCenter: 1.5
   maxGapCenter: 2.8
